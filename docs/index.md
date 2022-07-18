@@ -103,7 +103,7 @@ spec:
 
 This plugin displays Splunk On-Call (formerly VictorOps) information associated with an entity.
 
-It also provides the ability to trigger new incidents to specific users and/or specific teams from within Backstage.
+It also provides the ability to trigger new incidents to specific users and/or specific teams from within MDP.
 
 This plugin requires that entities feature either a `splunk.com/on-call-team` or a `splunk.com/on-call-routing-key` annotation. See below for further details.
 
@@ -119,7 +119,7 @@ This plugin provides:
 Install the plugin:
 
 ```bash
-# From your Backstage root directory
+# From your MDP root directory
 yarn add --cwd packages/app @backstage/plugin-splunk-on-call
 ```
 
@@ -180,7 +180,7 @@ proxy:
 
 In addition, to make certain API calls (trigger-resolve-acknowledge an incident) you need to add the `PATCH` method to the backend `cors` methods list: `[GET, POST, PUT, DELETE, PATCH]`.
 
-**WARNING**: In current implementation, the Splunk OnCall plugin requires the `/splunk-on-call` proxy endpoint be exposed by the Backstage backend as an unprotected endpoint, in effect enabling Splunk OnCall API access using the configured `SPLUNK_ON_CALL_API_KEY` for any user or process with access to the `/splunk-on-call` Backstage backend endpoint. See below for further configuration options enabling protection of this endpoint. If you regard this as problematic, consider using the plugin in `readOnly` mode (`<EntitySplunkOnCallCard readOnly />`) using the following proxy configuration:
+**WARNING**: In current implementation, the Splunk OnCall plugin requires the `/splunk-on-call` proxy endpoint be exposed by the MDP backend as an unprotected endpoint, in effect enabling Splunk OnCall API access using the configured `SPLUNK_ON_CALL_API_KEY` for any user or process with access to the `/splunk-on-call` MDP backend endpoint. See below for further configuration options enabling protection of this endpoint. If you regard this as problematic, consider using the plugin in `readOnly` mode (`<EntitySplunkOnCallCard readOnly />`) using the following proxy configuration:
 
 ```yaml
 proxy:
