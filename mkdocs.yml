@@ -1,4 +1,4 @@
-site_name: Mckinsey Developer Portal Doc
+site_name: McKinsey Developer Portal Doc
 site_url: https://example.com/
 nav:
     - Home: index.md

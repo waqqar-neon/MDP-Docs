@@ -1,4 +1,4 @@
-# Welcome to Mckinsey Developer Portal Doc
+# Welcome to McKinsey Developer Portal Doc
 
 ---
 
