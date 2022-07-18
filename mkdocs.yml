@@ -1,0 +1,5 @@
+site_name: Mckinsey Developer Portal Doc
+site_url: http://127.0.0.1:8000/
+nav:
+    - Home: index.md
+    - Sonarqube: sonarqube.md
