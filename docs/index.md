@@ -1,5 +1,7 @@
 # Welcome to Mckinsey Developer Portal Doc
 
+---
+
 ## SonarQube Plugin
 
 The SonarQube Plugin displays code statistics from [SonarCloud](https://sonarcloud.io) or [SonarQube](https://sonarqube.com).
@@ -8,14 +10,14 @@ The SonarQube Plugin displays code statistics from [SonarCloud](https://sonarclo
 
 ### Getting Started
 
-1. Install the SonarQube Plugin:
+- Install the SonarQube Plugin:
 
 ```bash
 # From your MDP root directory
 yarn add --cwd packages/app @backstage/plugin-sonarqube
 ```
 
-2. Add the `EntitySonarQubeCard` to the EntityPage:
+- Add the `EntitySonarQubeCard` to the EntityPage:
 
 ```diff
   // packages/app/src/components/catalog/EntityPage.tsx
@@ -35,7 +37,7 @@ yarn add --cwd packages/app @backstage/plugin-sonarqube
  );
 ```
 
-3. Add the proxy config:
+- Add the proxy config:
 
    Provide a method for your MDP backend to get to your SonarQube API end point. Add configuration to your `app-config.yaml` file depending on the product you use. Make sure to keep the trailing colon after the `SONARQUBE_TOKEN`, it is required to call
    the Web API (see [docs](https://docs.sonarqube.org/latest/extend/web-api/)).
@@ -69,16 +71,16 @@ sonarQube:
   baseUrl: https://your.sonarqube.instance.com
 ```
 
-4. Get and provide `SONARQUBE_TOKEN` as an env variable (https://sonarcloud.io/account/security or https://docs.sonarqube.org/latest/user-guide/user-token/).
+- Get and provide `SONARQUBE_TOKEN` as an env variable (https://sonarcloud.io/account/security or https://docs.sonarqube.org/latest/user-guide/user-token/).
 
-5. Run the following commands in the root folder of the project to install and compile the changes.
+- Run the following commands in the root folder of the project to install and compile the changes.
 
 ```yaml
 yarn install
 yarn tsc
 ```
 
-6. Add the `sonarqube.org/project-key` annotation to the `catalog-info.yaml` file of the target repo for which code quality analysis is needed.
+- Add the `sonarqube.org/project-key` annotation to the `catalog-info.yaml` file of the target repo for which code quality analysis is needed.
 
 ```yaml
 apiVersion: backstage.io/v1alpha1
@@ -94,10 +96,11 @@ spec:
   owner: CNCF
   lifecycle: experimental
 ```
+---
 
 ## Splunk On-Call
 
-![Splunk On-Call ReadOnly](splunk-on-call-read-only.png)
+![Splunk On-Call ReadOnly](splunk-on-call-read-only.PNG)
 
 ### Overview
 
@@ -232,23 +235,3 @@ $ SPLUNK_ON_CALL_API_KEY='' SPLUNK_ON_CALL_API_ID='' yarn start
 ```
 
 This will proxy the request by adding `X-VO-Api-Id` and `X-VO-Api-Key` headers with the provided values.
-
-You can also add the values in your helm template:
-
-```yaml
-# backend-secret.yaml
-stringData:
-  # ...
-  SPLUNK_ON_CALL_API_ID: { { .Values.auth.splunkOnCallApiId } }
-  SPLUNK_ON_CALL_API_KEY: { { .Values.auth.splunkOnCallApiKey } }
-```
-
-To enable it you need to provide them in the chart's values:
-
-```yaml
-# values.yaml
-auth:
-  # ...
-  splunkOnCallApiId: h
-  splunkOnCallApiKey: h
-```
