@@ -1,7 +1,5 @@
 # Welcome to Mckinsey Developer Portal Doc
 
-
-
 ## SonarQube Plugin
 
 The SonarQube Plugin displays code statistics from [SonarCloud](https://sonarcloud.io) or [SonarQube](https://sonarqube.com).
@@ -46,11 +44,11 @@ yarn add --cwd packages/app @backstage/plugin-sonarqube
 
 ```yaml
 proxy:
-  '/sonarqube':
+  "/sonarqube":
     target: https://sonarcloud.io/api
-    allowedMethods: ['GET']
+    allowedMethods: ["GET"]
     # note that the colon after the token is required
-    auth: '${SONARQUBE_TOKEN}:'
+    auth: "${SONARQUBE_TOKEN}:"
     # Environmental variable: SONARQUBE_TOKEN
     # Fetch the sonar-auth-token from https://sonarcloud.io/account/security/
 ```
@@ -59,11 +57,11 @@ proxy:
 
 ```yaml
 proxy:
-  '/sonarqube':
+  "/sonarqube":
     target: https://your.sonarqube.instance.com/api
-    allowedMethods: ['GET']
+    allowedMethods: ["GET"]
     # note that the colon after the token is required
-    auth: '${SONARQUBE_TOKEN}:'
+    auth: "${SONARQUBE_TOKEN}:"
     # Environmental variable: SONARQUBE_TOKEN
     # Fetch the sonar-auth-token from https://sonarcloud.io/account/security/
 
@@ -99,7 +97,7 @@ spec:
 
 ## Splunk On-Call
 
-![Splunk On-Call ReadOnly](Splunk-On-Call-ReadOnly.png)
+![Splunk On-Call ReadOnly](splunk-on-call-read-only.png)
 
 ### Overview
 
@@ -173,7 +171,7 @@ In order to make the API calls, you need to provide a new proxy config which wil
 # app-config.yaml
 proxy:
   # ...
-  '/splunk-on-call':
+  "/splunk-on-call":
     target: https://api.victorops.com/api-public
     headers:
       X-VO-Api-Id: ${SPLUNK_ON_CALL_API_ID}
@@ -186,13 +184,13 @@ In addition, to make certain API calls (trigger-resolve-acknowledge an incident)
 
 ```yaml
 proxy:
-  '/splunk-on-call':
+  "/splunk-on-call":
     target: https://api.victorops.com/api-public
     headers:
       X-VO-Api-Id: ${SPLUNK_ON_CALL_API_ID}
       X-VO-Api-Key: ${SPLUNK_ON_CALL_API_KEY}
     # prohibit the `/splunk-on-call` proxy endpoint from servicing non-GET requests
-    allowedMethods: ['GET']
+    allowedMethods: ["GET"]
 ```
 
 ### Adding your team name to the entity annotation
