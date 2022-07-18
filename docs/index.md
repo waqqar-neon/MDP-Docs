@@ -99,6 +99,8 @@ spec:
 
 ## Splunk On-Call
 
+![Splunk On-Call ReadOnly](Splunk-On-Call-ReadOnly.png)
+
 ### Overview
 
 This plugin displays Splunk On-Call (formerly VictorOps) information associated with an entity.
