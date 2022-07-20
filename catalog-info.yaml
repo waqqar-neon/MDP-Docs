@@ -1,13 +1,12 @@
+---
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: tech-docs
-  annotations:
-    splunk.com/on-call-team: Example
+  name: docs-test
+annotations:
+    gitlab.com/project-slug: StatusNeo/MDP-Docs
     backstage.io/techdocs-ref: dir:.
-    github.com/project-slug: Wick119/MDP-Docs
-    #sonarqube.org/project-key: Wick119_react-boilerplate
 spec:
   type: service
+  lifecycle: production
   owner: user:guest
-  lifecycle: experimental
